@@ -5,29 +5,40 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.5</version>
+        <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>ru.geekbrains</groupId>
-    <artifactId>Pattern_Lesson_4</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>Pattern_Lesson_4</name>
-    <description>Pattern_Lesson_4</description>
+    <artifactId>myShop</artifactId>
+    <version>0.0.1</version>
+    <name>myShop</name>
+    <description>myShop</description>
+
     <properties>
         <java.version>11</java.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>ms-user</module>
+        <module>ms-product</module>
+        <module>ms-order</module>
+        <module>ms-payment</module>
+
+        <module>core-lib</module>
+        <module>routing-lib</module>
+
+        <module>config-server</module>
+        <module>gateway-server</module>
+        <module>eureka-server</module>
+
+        <module>front-server</module>
+    </modules>
+
+    <dependencies></dependencies>
 
     <build>
         <plugins>
@@ -38,4 +49,15 @@
         </plugins>
     </build>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
